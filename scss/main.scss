@@ -1,0 +1,353 @@
+@import 'border-radius';
+@import 'variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  color: $color-secondary;
+  background-color: $bg-color-primary;
+  height: 100vh;
+}
+nav {
+  font-family: 'Poppins', sans-serif;
+  color: $color-secondary;
+  background-color: $bg-color-primary;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  p {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0rem 2rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  img {
+    display: flex;
+    flex-grow: 1;
+    color: $color-secondary;
+    max-width: 5%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+  form {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0rem 2rem;
+
+    input[type='text'] {
+      padding: 6px 6px;
+      margin: 0.5rem;
+      border-radius: 17px;
+      line-height: 1.5rem;
+      width: 6.5rem;
+      border: 0px;
+      text-align: center;
+      &:focus {
+        outline: none;
+        border: 1px solid #bdbdbd;
+      }
+      &::placeholder {
+        opacity: 0.8;
+      }
+    }
+    button {
+      border: 0px;
+      background-color: $bg-color-primary;
+    }
+  }
+}
+.balance {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  line-height: 2rem;
+  padding: 2rem 10rem;
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+
+    .balance__label {
+      font-weight: 500;
+      margin-bottom: -0.2rem;
+    }
+    .balance__date {
+      font-weight: light;
+      opacity: 0.9;
+      span {
+        font-weight: light;
+        opacity: 0.9;
+      }
+    }
+  }
+  &__value {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    font-size: 2.4rem;
+  }
+}
+
+.content {
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 100%;
+  padding: 0px 9rem;
+  max-width: 1380px;
+  margin: auto;
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 65%;
+    margin: 0px 0.5rem;
+    .movements {
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      border: 0px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 4px 0px #d8d8d8;
+      max-height: 400px;
+      overflow: scroll;
+
+      &__row {
+        display: flex;
+        flex-direction: row;
+        border-bottom: 0.5px solid #cacaca86;
+        line-height: 3.5rem;
+        flex: 1;
+        align-items: center;
+        padding: 1rem 1.5rem;
+      }
+      &__type {
+        display: flex;
+        flex-grow: 1;
+        &--deposit {
+        }
+      }
+      &__date {
+        display: flex;
+        flex-grow: 1;
+        opacity: 0.8;
+      }
+      &__value {
+        display: flex;
+        flex-grow: 4;
+        justify-content: flex-end;
+        font-size: 1.2rem;
+      }
+    }
+    .summary {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      &__label {
+        font-size: 0.8rem;
+        color: $color-secondary;
+        padding-right: 2px;
+      }
+      &__value {
+        font-size: 1.2rem;
+        padding-right: 1.5rem;
+        padding-left: 0.5rem;
+
+        &--in {
+          color: $color-green;
+        }
+        &--out {
+          color: $color-red;
+        }
+        &--interest {
+          color: $color-green;
+        }
+      }
+      .btn--sort {
+        background: none;
+        display: flex;
+        border: 0px;
+
+        &:hover {
+          color: #797979;
+        }
+      }
+    }
+  }
+  .right {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 45%;
+    margin: 0px 0.5rem;
+
+    .operation {
+      display: flex;
+      flex-direction: column;
+      border: 0px;
+      border-radius: 10px;
+      min-height: 100px;
+      margin-bottom: 1rem;
+      text-align: start;
+      justify-content: center;
+      padding: 1rem;
+      h2 {
+        font-size: 1rem;
+        padding: 1rem;
+      }
+      &--transfer {
+        background: $bg-color-yellow;
+        .form {
+          &--transfer {
+            display: flex;
+            text-align: center;
+          }
+          &--user {
+          }
+        }
+      }
+      &--loan {
+        background: $bg-color-green;
+      }
+      &--close {
+        background: $bg-color-red;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .content {
+    flex-direction: column;
+    .left {
+      margin-bottom: 2rem;
+      .movements {
+        max-height: 200px;
+        &__row {
+          line-height: 2.5rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 719px) {
+  nav {
+    p {
+      display: none;
+    }
+  }
+  .balance {
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    div {
+      flex-grow: 1;
+    }
+    &__value {
+      display: flex;
+      flex-grow: 1;
+      justify-content: center;
+    }
+  }
+  .content {
+    flex-direction: column;
+    padding: 2rem;
+    .left {
+      margin-bottom: 2rem;
+      flex-basis: 100%;
+      .movements {
+        max-height: 150px;
+        &__row {
+          line-height: 1.2rem;
+        }
+      }
+    }
+    .right {
+      .operation {
+        flex-direction: column;
+        align-items: center;
+        .form {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+
+  .f-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 469px) {
+  nav {
+    flex-direction: column;
+    p {
+      display: none;
+    }
+    img {
+      margin-bottom: 0.5rem;
+    }
+    .login {
+      width: 200px;
+
+      input[type='text'] {
+        padding: 6px 6px;
+        margin: 0.5rem;
+        border-radius: 17px;
+        line-height: 1.5rem;
+        width: 3.5rem;
+        border: 0px;
+        text-align: center;
+        font-size: 10px;
+      }
+      &__btn {
+        padding: 6px 6px;
+        margin: 0.5rem;
+        border-radius: 17px;
+        line-height: 1.5rem;
+        width: 3.5rem;
+        border: 0px;
+        text-align: center;
+        font-size: 10px;
+      }
+    }
+  }
+  .content {
+    .left {
+      .movements {
+        &__date {
+          display: none;
+        }
+        &__row {
+          padding: 0.5rem 0.5rem;
+          font-size: 11px;
+        }
+      }
+      .summary {
+        flex-direction: column;
+        .p {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
